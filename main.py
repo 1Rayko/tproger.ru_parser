@@ -14,7 +14,6 @@ if r.status_code == 200:
 	page = r.text
 	soup = BeautifulSoup(page, 'html.parser')
 	items = soup.find_all('a',class_="article-link")
-	#print(items)
 	i=0
 	data=[]
 	for j in items:
@@ -23,4 +22,4 @@ if r.status_code == 200:
 		#print('link',item.find('a',class_='article-link').get('href'))
 		i+=1
 	with open('data.txt', 'a+', encoding='utf-8') as g:
-		g.write(f'данные с сайта на сегодня( {str(now)}) {data}')
+		g.write(f'данные с сайта на сегодня( {str(now)}) {data}\n-----')
